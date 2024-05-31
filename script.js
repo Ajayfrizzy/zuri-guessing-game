@@ -1,10 +1,12 @@
+"use strict"
+
 let randomNumber = parseInt(Math.random() * 100 + 1);
 
-const userInput = document.querySelector("#guess-field");
+const inputField = document.querySelector("#input-field");
 const submit = document.querySelector("#sub");
-const startover = document.querySelector(".resultpress");
-const guessSlot = document.querySelector(".guesses");
-const remaining = document.querySelector(".lastresult");
+const startNewGame= document.querySelector(".start-new-game");
+const numberGuessed = document.querySelector(".number-guessed");
+const remainingGuesses = document.querySelector(".remaining-guesses");
 const loworhigh = document.querySelector(".loworhigh");
 
 const p = document.createElement("p");
@@ -14,9 +16,9 @@ let numGuesses = 1;
 let playGame = true;
 
 if (playGame) {
-  submit.addEventListener("click", function (e) {
+  submit.addEventListener("click", (e) => {
     e.preventDefault();
-    const guess = parseInt(userInput.value);
+    const guess = parseInt(inputField.value);
     validateGuess(guess);
   });
 }
@@ -54,31 +56,32 @@ function checkGuess(guess) {
 }
 
 function displayGuesses(guess) {
-  userInput.value = "";
-  guessSlot.innerHTML += `${guess} `;
+  inputField.value = "";
+  numberGuessed.innerHTML += `${guess} `;
   numGuesses++;
-  remaining.innerHTML = `${3 - numGuesses} `;
+  remainingGuesses.innerHTML = `${3 - numGuesses} `;
 }
 
 function displayMessage(message) {
   loworhigh.innerHTML = `<h1>${message}</h1>`;
 }
 
-function endGame() {
-  userInput.value = "";
-  userInput.setAttribute("disabled", "");
-  p.classList.add("button");
-  p.innerHTML = '<h1 id="newGame">Start New Game</h1>';
+  /*
+  Add code here to handle the end of the game
+  For example, you can disable the input field and submit button
+  playGame = false;
+  userInput.disabled = true;
+  submit.disabled = true;  */
 
-  startover.appendChild(p);
+function endGame() {
+  inputField.value = "";
+  inputField.setAttribute("disabled", "");
+  //p.classList.add("button");
+  p.innerHTML = '<h2 id="newGame">Start New Game</h2>';
+
+  startNewGame.appendChild(p);
   playGame = false;
   newGame();
-
-  // Add code here to handle the end of the game
-  // For example, you can disable the input field and submit button
-  //playGame = false;
-  //userInput.disabled = true;
-  //submit.disabled = true;
 }
 
 function newGame() {
@@ -87,11 +90,11 @@ function newGame() {
     randomNumber = parseInt(Math.random() * 100 + 1);
     previousGuesses = [];
     numGuesses = 1;
-    guessSlot.innerHTML = "";
+    numberGuessed.innerHTML = "";
     loworhigh.innerHTML = "";
-    remaining.innerHTML = `${3 - numGuesses} `;
-    userInput.removeAttribute("disabled");
-    startover.removeChild(p);
+    remainingGuesses.innerHTML = `${3 - numGuesses} `;
+    inputField.removeAttribute("disabled");
+    startNewGame.removeChild(p);
     playGame = true;
   });
 }

@@ -4,113 +4,122 @@
     padding: 0;
   }
   body {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    background-color: rgba(80, 163, 163, 0.8);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(90deg,#ff0000 0%, #00ff00 100%);
+    font-size: 16px;
   }
   
   .container {
     text-align: center;
-    max-width: 700px;
+    max-width: 100vw;
     width: 50%;
-    background-color: rgba(21, 102, 102, 0.5);
-    margin: 5px auto;
-    box-shadow: 10px 10px 15px rgba(70, 104, 104, 0.8),
-      -10px -10px 15px rgba(93, 138, 138, 0.8);
-    border-radius: 20px;
-    padding: 90px;
-    margin-top: 60px;
-  }
+    background-color: rgb(64, 128, 48);
+    margin: 1.5rem auto;
+    box-shadow: 0.8rem 0.8rem 1.6rem rgba(0, 0, 0, 0.13);
+    padding: 1.5rem;
+    font-weight: 700;
+    border-radius: 2rem;
+}
   
-  h1 {
-    font-size: 3rem;
-    margin: 15px 0;
-    line-height: 1;
-    margin-bottom: 50px;
-  }
-  p {
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-  }
+h1 {
+  font-size: 2rem;
+  margin: 1rem 0 1.5rem;
+  line-height: 1;
+}
+p {
+  font-size: 1.5rem;
+  margin-bottom: 1.3rem;
+}
   
   span {
-    font-size: rem;
-    font-weight: bold;
+    font-size: 1.5rem;
   }
+
+  #input-field {
+    width: 50%;
+    height: 5rem;
+    margin: 1rem auto;
+    font-size: 3.5rem;
+    border: 3px solid rgb(108, 237, 153);
+    display: block;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    outline: none;
+}
   
-  .lastresult {
-    color: black;
-    padding: 7px;
-  }
-  
-  .guesses {
-    color: black;
-    padding: 7px;
-  }
   button {
     background-color: #e1fcea;
-    color: black;
-    width: 250px;
-    height: 50px;
-    border-radius: 50px;
-    font-size: 30px;
-    border-style: 30px;
-  }
-  
-  #sub {
-    background-color: #e1fcea;
-    color: black;
-    width: 300px;
-    height: 40px;
-    border-radius: 25px;
-    font-size: 25px;
-    border-style: none;
-    margin-top: 30px;
-    margin-bottom: 25px;
-  }
-  
-  #guess-field {
-    color: black;
-    width: 300px;
-    height: 80px;
-    font-size: 40px;
-    border-style: none;
-    margin-top: 15px;
-    font-size: 50px;
-    border: 3px solid rgb(138, 216, 247);
-  }
-  
+    width: 50%;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    border: none;
+    padding: 1rem 0;
+    margin: 1rem auto 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* .button{
+  background-color: #e1fcea;
+  width: 50%;
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  border: none;
+  padding: 1rem 0;
+  margin: 1rem auto 1.5rem;
+} */
+
   #guess {
     font-size: 2rem;
-    font-weight: bolder;
     color: rgb(249, 249, 249);
-    margin-top: 100px;
   }
-  
-  #wrapper {
-    box-sizing: border-box;
-    color: white;
-    font-size: 20px;
+
+  #newGame {
+    background-color: #e1fcea;
+    width: 70%;
+    padding: 0.8rem;
     text-align: center;
-  }
+    border: none;
+    margin: auto;
+    border-radius: 2.5rem;
+    cursor: pointer;
+}
+
+#newGame:hover {
+    background-color: #bdd4c5
+}
   
-  /* Media query for smaller screens */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px), (max-width: 759.99px) {
     .container {
-      padding: 10px;
+      width: 90%;
     }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.3rem;
   }
-  
-  /* Media query for even smaller screens */
-  @media screen and (max-width: 480px) {
-    h1 {
+  #input-field{
+      width: 60%;
+      height: 3rem;
       font-size: 2rem;
-    }
-  
-    input,
-    button {
-      padding: 8px;
-    }
   }
-  
+  button {
+    width: 60%;
+    font-size: 1rem;
+}
+#newGame {
+  width: 60%;
+  font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 450px){
+  #newGame {
+    width: 65%;
+    }
+}
+
+@media screen and (max-width: 350px), (max-width: 400px){
+  #newGame {
+    width: 80%;
+    }
+}
