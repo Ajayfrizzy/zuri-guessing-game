@@ -48,7 +48,7 @@ p {
 }
   
   button {
-    background-color: #03a503;
+    background-color: #09f257;
     width: 50%;
     border-radius: 3rem;
     font-size: 1.8rem;
@@ -60,7 +60,7 @@ p {
 }
 
 button:hover{
-  background-color: #09f257;
+  background-color: #03a503;
 }
 
   #guess {
