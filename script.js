@@ -1,5 +1,3 @@
-"use strict"
-
 let randomNumber = parseInt(Math.random() * 100 + 1);
 
 const inputField = document.querySelector("#input-field");
@@ -35,7 +33,7 @@ function validateGuess(guess) {
 
     if (numGuesses === 3) {
       displayGuesses(guess);
-      displayMessage(`Game Over! Number was ${randomNumber}`);
+      displayMessage(`Game Over! Number was ${randomNumber}, try your luck again`);
       endGame();
     } else {
       displayGuesses(guess);
@@ -76,9 +74,8 @@ function displayMessage(message) {
 function endGame() {
   inputField.value = "";
   inputField.setAttribute("disabled", "");
-  //p.classList.add("button");
+  p.classList.add("button");
   p.innerHTML = '<h2 id="newGame">Start New Game</h2>';
-
   startNewGame.appendChild(p);
   playGame = false;
   newGame();
