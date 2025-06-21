@@ -1,119 +1,143 @@
+:root {
+  --primary-color: #09f257;
+  --primary-hover: #03a503;
+  --secondary-color: #bdd4c5;
+  --background: linear-gradient(90deg, #ff0000 0%, #00ff00 100%);
+  --container-bg: rgb(64, 128, 48);
+  --text-light: rgb(249, 249, 249);
+  --border-color: rgb(108, 237, 153);
+  --shadow: 0.8rem 0.8rem 1.6rem rgba(0, 0, 0, 0.13);
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: linear-gradient(90deg,#ff0000 0%, #00ff00 100%);
-    font-size: 16px;
-  }
-  
-  .container {
-    text-align: center;
-    max-width: 100vw;
-    width: 50%;
-    background-color: rgb(64, 128, 48);
-    margin: 1.5rem auto;
-    box-shadow: 0.8rem 0.8rem 1.6rem rgba(0, 0, 0, 0.13);
-    padding: 1.5rem;
-    font-weight: 700;
-    border-radius: 2rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-  
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: var(--background);
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.container {
+  text-align: center;
+  width: min(90%, 600px);
+  background-color: var(--container-bg);
+  margin: 1.5rem auto;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  color: var(--text-light);
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   margin: 1rem 0 1.5rem;
-  line-height: 1;
+  line-height: 1.2;
 }
-p {
-  font-size: 1.5rem;
+
+p, span {
+  font-size: clamp(1rem, 3vw, 1.5rem);
   margin-bottom: 1.3rem;
 }
-  
-  span {
-    font-size: 1.5rem;
-  }
 
-  #input-field {
-    width: 50%;
-    height: 5rem;
-    margin: 1rem auto;
-    font-size: 3.5rem;
-    border: 3px solid rgb(108, 237, 153);
-    display: block;
-    border-radius: 1rem;
-    padding: 0.8rem;
-    outline: none;
-}
-  
-  button {
-    background-color: #09f257;
-    width: 50%;
-    border-radius: 3rem;
-    font-size: 1.8rem;
-    border: none;
-    padding: 1rem 0;
-    margin: 1rem auto 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
+#guess {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-button:hover{
-  background-color: #03a503;
+#input-field {
+  width: min(80%, 300px);
+  height: clamp(3rem, 8vw, 5rem);
+  margin: 1rem auto;
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  border: 3px solid var(--border-color);
+  display: block;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  text-align: center;
 }
 
-  #guess {
-    font-size: 2rem;
-    color: rgb(249, 249, 249);
-  }
+button {
+  background-color: var(--primary-color);
+  width: min(80%, 300px);
+  border-radius: 3rem;
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  border: none;
+  padding: 0.8rem 0;
+  margin: 1rem auto 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #333;
+}
 
-  #newGame {
-    background-color: #09f257;
-    width: 70%;
-    padding: 0.8rem;
-    text-align: center;
-    border: none;
-    margin: auto;
-    border-radius: 2.5rem;
-    cursor: pointer;
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+.message {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.message.info {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.message.win {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.lose {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.message.error {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+#newGame {
+  background-color: var(--primary-color);
+  width: min(80%, 250px);
+  padding: 0.8rem;
+  text-align: center;
+  border: none;
+  margin: 1rem auto;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease;
 }
 
 #newGame:hover {
-    background-color: #bdd4c5
-}
-  
-  @media screen and (max-width: 600px), (max-width: 759.99px) {
-    .container {
-      width: 90%;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 1.3rem;
-  }
-  #input-field{
-      width: 60%;
-      height: 3rem;
-      font-size: 2rem;
-  }
-  button {
-    width: 60%;
-    font-size: 1rem;
-}
-#newGame {
-  width: 60%;
-  font-size: 1.2rem;
-  }
+  background-color: var(--secondary-color);
 }
 
-@media screen and (max-width: 450px){
-  #newGame {
-    width: 65%;
-    }
+button:focus, 
+#input-field:focus {
+  outline: 2px solid var(--border-color);
+  outline-offset: 2px;
 }
 
-@media screen and (max-width: 350px), (max-width: 400px){
-  #newGame {
-    width: 80%;
-    }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
